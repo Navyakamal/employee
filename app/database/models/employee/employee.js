@@ -1,0 +1,99 @@
+const { default: mongoose } = require("mongoose");
+
+const employeeSchema=mongoose.Schema({
+    employeeId:{
+        type:String,
+        required:true,
+        unique:true
+    },
+    firstName:{
+        type:String,
+        required:true       
+    },
+    lastName:{
+        type:String,
+        required:true              
+    },
+    dateOfBirth:{
+        type:Date,
+        required:true
+    },
+    position:{
+        type:String,
+        required:true
+    },
+    department:{
+        type:String,    
+        required:true
+    },
+    email:{
+        type:String,
+        required:true,
+        match: /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    },
+    phone:{
+        type:String,
+        required:true
+    },
+    address:{
+        street:{
+            type:String,
+            required:true
+        },
+        city:{
+            type:String,
+            required:true
+        },
+        state:{
+            type:String,
+            required:true
+        },
+        zip:{
+            type:String,
+            required:true
+        }
+    },
+    employmentStartDate:{
+        type:Date,
+        required:true
+    },
+    employmentEndDate:{
+        type:Date,
+        default:null,
+    },
+    salary:{
+        type:Number,
+        required:true
+    },
+    status:{
+        type:String,
+        enum:['Active','Inactive'],
+        required:true
+    },
+    emergencyContacts:[
+        {
+            name:{
+                type:String,
+                required:true
+            },
+            relationship:{
+                type:String,
+                required:true
+            },
+            phone:{
+                type:String,
+                required:true
+            }
+    
+        }
+    ],
+    password:{
+        type:String,
+        required:true,
+        match: /^.{1,7}$/
+    }
+
+})
+
+const employees=mongoose.model("employees",employeeSchema)
+module.exports=employees
