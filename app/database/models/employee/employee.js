@@ -38,24 +38,19 @@ const employeeSchema=mongoose.Schema({
     address:{
         street:{
             type:String,
-            required:true
         },
         city:{
             type:String,
-            required:true
         },
         state:{
             type:String,
-            required:true
         },
         zip:{
             type:String,
-            required:true
         }
     },
     employmentStartDate:{
         type:Date,
-        required:true
     },
     employmentEndDate:{
         type:Date,
@@ -63,7 +58,6 @@ const employeeSchema=mongoose.Schema({
     },
     salary:{
         type:Number,
-        required:true
     },
     status:{
         type:String,
@@ -74,15 +68,12 @@ const employeeSchema=mongoose.Schema({
         {
             name:{
                 type:String,
-                required:true
             },
             relationship:{
                 type:String,
-                required:true
             },
             phone:{
                 type:String,
-                required:true
             }
     
         }
@@ -90,7 +81,7 @@ const employeeSchema=mongoose.Schema({
     password:{
         type:String,
         required:true,
-        match: /^.{1,7}$/
+        minlength:8
     }
 
 })

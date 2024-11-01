@@ -6,6 +6,6 @@ exports.updateEmployee=async(id,data)=>{
         return updatedEmployee
     }
     catch(error){
-        throw err
+        throw error
     }
 }
