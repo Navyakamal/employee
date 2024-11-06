@@ -1,4 +1,5 @@
 const { addEmployee } = require("./addEmployee");
+const { createTask } = require("./createTask");
 const { deleteEmployee } = require("./deleteEmployee");
 const { getAllEmployees } = require("./getEmployee");
 const { getEmployeeByStatus } = require("./getEmployeeByStatus");
@@ -11,5 +12,6 @@ module.exports={
     loginEmployee,
     updateEmployee,
     deleteEmployee,
-    getEmployeeByStatus
+    getEmployeeByStatus,
+    createTask
 }
