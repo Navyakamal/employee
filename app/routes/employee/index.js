@@ -1,8 +1,5 @@
 const express = require('express');
 const { addEmployee, getAllEmployees, loginEmployee, deleteEmployee, getEmployeeByStatus, createTask, updateEmployee } = require('../../controller/employeeController');
-const { jwtMiddleware } = require('../../middlewares/employeeMiddleware/jwtMiddleware');
-const upload = require('../../middlewares/employeeMiddleware/multerMiddleware');
-const { deleteTask } = require('../../controller/employeeController/deleteTask');
 const router = express.Router();
 
 /**
@@ -59,8 +56,5 @@ router.route('/:employeeId').put(updateEmployee).delete(deleteEmployee)
 
 router.route('/status').get(getEmployeeByStatus)
 
-router.route('/tasks').post(jwtMiddleware,upload.single('files'),createTask)
-
-router.route('/tasks/:taskId').put(jwtMiddleware,deleteTask)
 
 module.exports=router
